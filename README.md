@@ -11,7 +11,7 @@ Gathering information from Internet and analyse them to focus on personal purpos
 ---
 This project include six phases including Pre-Alpha, Alpha, Beta, RC, GA, Gold.
 Reference from the following image.
-![software release life cycle](https://github.com/edony/anth/softwarecycle.png)
+![software release life cycle](https://github.com/edonyM/anth/blob/master/softwarelifecycle.png)
 Here is the explaination about them:
 * Pre-Alpha
 * Alpha
