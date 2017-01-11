@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import sys
+import os
+from os.path import dirname
+from misc.log import *
 
 # Scrapy settings for antspi project
 #
@@ -27,7 +31,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -55,6 +59,10 @@ ROBOTSTXT_OBEY = True
 #DOWNLOADER_MIDDLEWARES = {
 #    'antspi.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
+DOWNLOADER_MIDDLEWARES = {
+   # 'misc.middleware.CustomHttpProxyMiddleware': 400,
+    'misc.middleware.CustomUserAgentMiddleware': 401,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -67,6 +75,10 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'antspi.pipelines.SomePipeline': 300,
 #}
+ITEM_PIPELINES = {
+    'zhihu.pipelines.JsonWithEncodingPipeline': 300,
+    'zhihu.pipelines.RedisPipeline': 301,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -95,3 +107,8 @@ MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
 MONGODB_DB = "stackoverflow"
 MONGODB_COLLECTION = "questions"
+
+# zhihu
+path = dirname(dirname(os.path.abspath(os.path.dirname(__file__))))
+sys.path.append(path)
+LOG_LEVEL = 'INFO'
