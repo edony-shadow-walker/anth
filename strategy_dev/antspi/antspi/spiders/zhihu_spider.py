@@ -2,7 +2,7 @@
 
 import re
 import json
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 
 from scrapy.selector import Selector
@@ -15,7 +15,7 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor as sle
 
 
-from zhihu.items import *
+from antspi.items import *
 from misc.log import *
 
 '''

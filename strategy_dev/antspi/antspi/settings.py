@@ -2,7 +2,6 @@
 import sys
 import os
 from os.path import dirname
-from misc.log import *
 
 # Scrapy settings for antspi project
 #
@@ -75,10 +74,6 @@ DOWNLOADER_MIDDLEWARES = {
 #ITEM_PIPELINES = {
 #    'antspi.pipelines.SomePipeline': 300,
 #}
-ITEM_PIPELINES = {
-    'zhihu.pipelines.JsonWithEncodingPipeline': 300,
-    'zhihu.pipelines.RedisPipeline': 301,
-}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -102,13 +97,17 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # MongoDB
-ITEM_PIPELINES = {'antspi.pipelines.MongoDBPipeline': 800, }
+ITEM_PIPELINES = {'antspi.pipelines.MongoDBPipeline': 800,
+                  'antspi.pipelines.JsonWithEncodingPipeline': 300,
+                  'antspi.pipelines.RedisPipeline': 301,
+                 }
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
 MONGODB_DB = "stackoverflow"
 MONGODB_COLLECTION = "questions"
 
 # zhihu
-path = dirname(dirname(os.path.abspath(os.path.dirname(__file__))))
+path = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(path)
 LOG_LEVEL = 'INFO'
+from misc.log import *
