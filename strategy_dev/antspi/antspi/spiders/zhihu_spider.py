@@ -28,7 +28,7 @@ class ZhihuSpider(CrawlSpider):
     allowed_domains = ["zhihu.com"]
     start_urls = [
         "http://www.zhihu.com/",
-        "http://www.zhihu.com/people/jia-yang-qing-74",
+        "https://www.zhihu.com/people/edonym/activities",
     ]
     rules = [
         Rule(sle(allow=("/people/[^/]+/followees$")), callback='parse_followees'),
