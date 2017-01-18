@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+void salt(cv::Mat &image, int n);
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,13 +22,42 @@ void MainWindow::on_pushButton_clicked()
                                                     ".",
                                                     tr("Image Files (*.png *.jpg *.jpeg *.bmp)"));
     image= cv::imread(fileName.toUtf8().data());
+    salt(image,30000);
+    cv::resize(image, image, cv::Size(), 0.5, 0.5);//resize image
     cv::namedWindow("Original Image");
     cv::imshow("Original Image", image);
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    cv::flip(image,image,1);
+    /*cv::flip(image,image,1);
     cv::namedWindow("Output Image");
-    cv::imshow("Output Image", image);
+    cv::imshow("Output Image", image);*/
+    cv::flip(image,image,1); // process the image
+    // change color channel ordering
+    cv::cvtColor(image,image,CV_BGR2RGB);
+    // Qt image
+    QImage img= QImage((const unsigned char*)(image.data),
+             image.cols,image.rows,QImage::Format_RGB888);
+    // display on label
+    ui->label->setPixmap(QPixmap::fromImage(img));
+    // resize the label to fit the image
+    ui->label->resize(ui->label->pixmap()->size());
+}
+
+void salt(cv::Mat &image, int n)
+{
+      for (int k=0; k<n; k++) {
+         // rand() is the MFC random number generator
+         // try qrand() with Qt
+         int i= rand()%image.cols;
+         int j= rand()%image.rows;
+         if (image.channels() == 1) { // gray-level image
+            image.at<uchar>(j,i)= 255;
+         } else if (image.channels() == 3) { // color image
+            image.at<cv::Vec3b>(j,i)[0]= 255;
+            image.at<cv::Vec3b>(j,i)[1]= 255;
+            image.at<cv::Vec3b>(j,i)[2]= 255;
+         }
+      }
 }
