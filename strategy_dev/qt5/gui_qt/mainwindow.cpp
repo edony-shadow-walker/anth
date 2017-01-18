@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 void salt(cv::Mat &image, int n);
+void colorReduce(cv::Mat &image, int div);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,7 +23,8 @@ void MainWindow::on_pushButton_clicked()
                                                     ".",
                                                     tr("Image Files (*.png *.jpg *.jpeg *.bmp)"));
     image= cv::imread(fileName.toUtf8().data());
-    salt(image,30000);
+    //salt(image,30000);
+    colorReduce(image, 64);
     cv::resize(image, image, cv::Size(), 0.5, 0.5);//resize image
     cv::namedWindow("Original Image");
     cv::imshow("Original Image", image);
@@ -60,4 +62,21 @@ void salt(cv::Mat &image, int n)
             image.at<cv::Vec3b>(j,i)[2]= 255;
          }
       }
+}
+
+
+void colorReduce(cv::Mat &image, int div=64)
+{
+        int nl= image.rows; // number of lines
+        // total number of elements per line
+        int nc= image.cols * image.channels();
+        for (int j=0; j<nl; j++) {
+            // get the address of row j
+            uchar* data= image.ptr<uchar>(j);
+            for (int i=0; i<nc; i++) {
+                // process each pixel ---------------------
+                data[i]=    data[i]/div*div + div/2;
+                // end of pixel processing ----------------
+            } // end of line
+        }
 }
