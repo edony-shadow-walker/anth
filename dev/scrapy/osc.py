@@ -16,11 +16,11 @@ AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"})
         self.log("[ANTH::###{<edony.OSC.SPIDER>}###]Fetching the OSC: " + response.url)
         #with open('osc.html', 'wb') as filebuf:
         #   filebuf.write(response.body)
-        XPATH_REG = '//*[@id="kinds-of-news"]/div[{}]'
+        xpath_reg = '//*[@id="kinds-of-news"]/div[{}]'
         flags = [item for item in range(1, 10)]
         for count in flags:
-            url_ = response.xpath(XPATH_REG.format(count)).css('a::attr(href)').extract()
-            text_ = response.xpath(XPATH_REG.format(count)).css('div::text').extract()
+            url_ = response.xpath(xpath_reg.format(count)).css('a::attr(href)').extract()
+            text_ = response.xpath(xpath_reg.format(count)).css('div::text').extract()
             for url in url_:
                 print('[###]' + url + '[!!!]')
             for text in text_:
