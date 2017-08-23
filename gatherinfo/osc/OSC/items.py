@@ -5,10 +5,13 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.item import Item
+from scrapy.item import Field
 
 
-class OscItem(scrapy.Item):
+class OscItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    # primary field
+    description = Field()
+    link = Field()

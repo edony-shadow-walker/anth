@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import re
+import logging
 import scrapy
+from scrapy.selector import Selector
+from OSC.items import OscItem
 
 class OSCSpider(scrapy.Spider):
     name = "OSC"
@@ -20,18 +23,40 @@ Chrome/22.0.1207.1 Safari/537.1"
             return url
         return self.start_url[0] + url
 
-    @staticmethod
-    def _desc_parser(text):
-        for desc in text:
-            if re.match('\r\n +', desc) is not None:
-                continue
-            return desc
-
     def parse(self, response):
-        self.log("[ANTH{<edony.OSC.SPIDER>}]Fetching the OSC news industry: " + response.url)
-        xpath_reg = '//*[@id="kinds-of-news"]/div'
-        for item in response.xpath(xpath_reg):
-            url = self._url_parser(item.css('a::attr(href)').extract()[0])
-            text = self._desc_parser(item.css('div::text').extract())
-            yield {'url': url,
-                   'text': text}
+        # setup log
+        logging.getLogger("requests").setLevel(logging.WARNING)
+        logging.basicConfig(level=logging.DEBUG,
+                            format=
+                            '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                            datefmt='%a, %d %b %Y %H:%M:%S',
+                            filename='cataline.log',
+                            filemode='w')
+
+        self.log("[ANTH] parsing OSC news industry: " + response.url)
+        selector = Selector(response)
+        if selector.xpath('//*[@id="all-news"]/div[*]/div[*]/a[@href]').\
+                css('a::attr(href)').extract():
+            logging.debug('[ANTH] parse url: ' + self.start_url[0])
+            item = OscItem()
+            selector = Selector(response)
+            hrefs = selector.xpath('//*[@id="all-news"]/div[*]/div[*]/a[@href]').\
+                    css('a::attr(href)').extract()
+            hrefs = list(set(hrefs))
+            for link_item in hrefs:
+                item['link'] = self._url_parser(link_item)
+                reg = '//*[@href="{}"]/span'.format(link_item)
+                if selector.xpath(reg).extract_first():
+                    item['description'] = selector.xpath(reg).css('span::text').extract_first()
+                else:
+                    item['description'] = ''
+                yield item
+
+        # next page
+        url_next = selector.xpath('//*[@id="all-news"]/a[@href]').css('a::attr(href)').extract()
+        logging.debug(url_next)
+        if url_next:
+            # if self.test:
+            logging.debug('[ANTH] next page: ' + self.start_url[0] + url_next[0])
+            #yield scrapy.http.Request(url=self.start_url[0] + url_next[0],
+            #              callback=self.parse)
