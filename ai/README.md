@@ -1,10 +1,11 @@
-Recommendation System Module With The Help of Machine Learning
+Recommendation System Module
+---
+This module aims to find the information that you are interested in, which is in virtue of Machine Learning Tech.
+
+#### Working Flow
 ---
 
-## Working Flow
----
-
-### F1. Generate AI module
+##### F1. Generate AI module
 1. [get info from website | **gatherinfo**]
 
 2. [label data | **analyseinfo**]
@@ -13,7 +14,7 @@ Recommendation System Module With The Help of Machine Learning
 
 4. [loops from 1 to 3 | **sced**]
 
-### F2. Recommend Info
+##### F2. Recommend Info
 1. [get info from website | **gatherinfo**]
 
 2. [generate recommended info | **ai**]
