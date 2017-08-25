@@ -5,23 +5,23 @@ Recommendation System Module With The Help of Machine Learning
 ---
 
 ### F1. Generate AI module
-1. [get info from website | *gatherinfo*]
+1. [get info from website | **gatherinfo**]
 
-2. [label data | *analyseinfo*]
+2. [label data | **analyseinfo**]
 
-3. [train personalized AI module | *ai*]
+3. [train personalized AI module | **ai**]
 
-4. [loops from 1 to 3 | *sced*]
+4. [loops from 1 to 3 | **sced**]
 
 ### F2. Recommend Info
-1. [get info from website | *gatherinfo*]
+1. [get info from website | **gatherinfo**]
 
-2. [generate recommended info | *ai*]
+2. [generate recommended info | **ai**]
 
-3. [label data | *analyseinfo*]
+3. [label data | **analyseinfo**]
 
-4. [schedule training mission | *sched*]
+4. [schedule training mission | **sched**]
 
-5. [optimize AI | *ai*]
+5. [optimize AI | **ai**]
 
-6. [loops from 1 to 5 | *sched*]
+6. [loops from 1 to 5 | **sched**]
