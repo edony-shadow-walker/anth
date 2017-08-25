@@ -26,3 +26,12 @@ This module aims to find the information that you are interested in, which is in
 5. [optimize AI | **ai**]
 
 6. [loops from 1 to 5 | **sched**]
+
+#### Choosen of Open Source AI Recommendation System Engien
+---
+
+##### Open Source AI Engien Lists
+
+##### ANTH AI Module Requirements
+
+##### Compare and Result
