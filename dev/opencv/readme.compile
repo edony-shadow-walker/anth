@@ -1,0 +1,1 @@
+g++ -o exam opencv_exam.cpp -L /usr/local/lib -I /usr/local/include -l opencv_core -l opencv_highgui -l opencv_imgproc
