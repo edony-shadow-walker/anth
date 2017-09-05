@@ -1,4 +1,4 @@
-# antH
+# ANTH
 ---
 
 *Customized AI system for a efficient daylife*
@@ -25,12 +25,25 @@ Here is the explaination about them:
 ---
 |sub-module|phase|remark|
 |:--------:|:----|:----:|
-|strategy_dev|Pre-Alpha|Doing|
+|dev|Pre-Alpha|Doing|
+|gatherinfo, ai|Alpha|Doing|
 
 ## Detail Modules
 ---
 Details information about the sub-modules.
 
-### strategy_dev
+### dev
 ---
 Strategy technology storage for this project and not sure if it works.
+
+### ai
+---
+Kernel of project ANTH which do the core job.
+
+### sched
+---
+Dispatcher for system running.
+
+### analyseinfo
+---
+Machine Learning module to do information analysis
