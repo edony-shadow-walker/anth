@@ -1,7 +1,7 @@
 # ANTH
 ---
 
-*Customized AI system for a efficient daylife*
+[Customized AI system for a efficient daylife](https://emanth.github.io/anth/)
 
 ## Golden Goal
 ---
