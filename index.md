@@ -2,122 +2,52 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# ANTH
+---
 
-[Link to another page](another-page).
+[Customized AI system for a efficient daylife](https://emanth.github.io/anth/)
 
-There should be whitespace between paragraphs.
+## Golden Goal
+---
+Gathering information from Internet and analyse them to focus on personal purpose.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## Detail Plan
+---
+This project include six phases including Pre-Alpha, Alpha, Beta, RC, GA, Gold.
+Reference from the following image.
+![software release life cycle](https://github.com/edonyM/anth/blob/master/softwarelifecycle.png)
 
-# [](#header-1)Header 1
+Here is the explaination about them:
+* Pre-Alpha
+* Alpha
+* Beta
+* RC
+* GA
+* Gold
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+## Schedule
+---
+|sub-module|phase|remark|
+|:--------:|:----|:----:|
+|dev|Pre-Alpha|Doing|
+|gatherinfo, ai|Alpha|Doing|
 
-## [](#header-2)Header 2
+## Detail Modules
+---
+Details information about the sub-modules.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+### dev
+---
+Strategy technology storage for this project and not sure if it works.
 
-### [](#header-3)Header 3
+### ai
+---
+Kernel of project ANTH which do the core job.
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+### sched
+---
+Dispatcher for system running.
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### [](#header-4)Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### [](#header-5)Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### [](#header-6)Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+### analyseinfo
+---
+Machine Learning module to do information analysis
