@@ -3,5 +3,5 @@ description: Customized AI system for a efficient daylife.
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-hacker
-site.github.zip_url: http://github.com/emanth/anth/zipball/master
-site.github.tar_url: http://github.com/emanth/anth/tarball/master
+zip_url: http://github.com/emanth/anth/zipball/master
+tar_url: http://github.com/emanth/anth/tarball/master
