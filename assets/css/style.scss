@@ -1,12 +1,12 @@
 ---
 ---
 
-@import 'jekyll-theme-hacker';
 @import "{{ site.theme }}";
 table.gridtable {
     font-family: verdana,arial,sans-serif;
     font-size:11px;
     color:#333333;
+    border-style: solid;
     border-width: 1px;
     border-color: #666666;
     border-collapse: collapse;
